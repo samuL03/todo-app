@@ -1,9 +1,8 @@
-export default function TodoItem({ todo, onToggle, onDelete }){
-return (
-<li>
-<input type="checkbox" checked={todo.completed} onChange={() => onToggle(todo.id)} />
-<span style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>{todo.title}</span>
-<button onClick={() => onDelete(todo.id)}>Eliminar</button>
-</li>
-)
+export default function TodoItem({ texto, eliminar }) {
+  return (
+    <li className="todo-item">
+      <span>{texto}</span>
+      <button onClick={eliminar}>X</button>
+    </li>
+  );
 }

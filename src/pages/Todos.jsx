@@ -1,47 +1,39 @@
-import { useState } from 'react'
-import { createTodo } from '../services/api'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import TodoItem from "../components/TodoItem";
 
+export default function Todos() {
+  const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
 
-export default function Registro(){
-const [title, setTitle] = useState('')
-const [loading, setLoading] = useState(false)
-const [error, setError] = useState(null)
-const navigate = useNavigate()
+  const agregar = () => {
+    if (!input.trim()) return;
+    setTodos([...todos, input]);
+    setInput("");
+  };
 
+  const eliminar = (index) => {
+    setTodos(todos.filter((_, i) => i !== index));
+  };
 
-const handleSubmit = async (e) => {
-e.preventDefault()
-if (!title.trim()) {
-setError('El título es obligatorio')
-return
-}
-setLoading(true)
-setError(null)
-try {
-const res = await createTodo({ title, completed: false, userId: 1 })
-console.log('Todo creado:', res.data)
-// redirigir a /todos
-navigate('/todos')
-} catch (err) {
-setError('No se pudo crear el todo')
-} finally {
-setLoading(false)
-}
-}
+  return (
+    <div>
+      <h1>Tus Tareas</h1>
 
+      <div className="todo-input">
+        <input
+          type="text"
+          placeholder="Nueva tarea..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button onClick={agregar}>Agregar</button>
+      </div>
 
-return (
-<div>
-<h1>Crear Todo</h1>
-<form onSubmit={handleSubmit}>
-<label>
-Título
-<input value={title} onChange={e => setTitle(e.target.value)} />
-</label>
-{error && <p style={{color:'red'}}>{error}</p>}
-<button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Crear'}</button> 
-</form> 
-</div> 
-)
+      <ul className="todo-list">
+        {todos.map((t, i) => (
+          <TodoItem key={i} texto={t} eliminar={() => eliminar(i)} />
+        ))}
+      </ul>
+    </div>
+  );
 }
