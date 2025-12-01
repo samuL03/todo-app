@@ -40,7 +40,7 @@ Título
 <input value={title} onChange={e => setTitle(e.target.value)} />
 </label>
 {error && <p style={{color:'red'}}>{error}</p>}
-<button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Crear'}</button>
+<button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Crear'}</button> 
 </form>
 </div>
 )
