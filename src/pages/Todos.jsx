@@ -1,60 +1,47 @@
-import { useEffect, useState } from 'react'
-import { getTodos, deleteTodo, updateTodo } from '../services/api'
-import TodosList from '../components/TodosList'
+import { useState } from 'react'
+import { createTodo } from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
 
-export default function Todos() {
-const [todos, setTodos] = useState([])
+export default function Registro(){
+const [title, setTitle] = useState('')
 const [loading, setLoading] = useState(false)
 const [error, setError] = useState(null)
+const navigate = useNavigate()
 
 
-useEffect(() => {
-const fetchTodos = async () => {
+const handleSubmit = async (e) => {
+e.preventDefault()
+if (!title.trim()) {
+setError('El título es obligatorio')
+return
+}
 setLoading(true)
 setError(null)
 try {
-const res = await getTodos()
-setTodos(res.data)
+const res = await createTodo({ title, completed: false, userId: 1 })
+console.log('Todo creado:', res.data)
+// redirigir a /todos
+navigate('/todos')
 } catch (err) {
-setError('Error al obtener todos')
+setError('No se pudo crear el todo')
 } finally {
 setLoading(false)
 }
 }
 
 
-fetchTodos()
-}, [])
-
-
-const handleToggle = async (id) => {
-const target = todos.find(t => t.id === id)
-try {
-await updateTodo(id, { ...target, completed: !target.completed })
-setTodos(todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t))
-} catch (err) {
-setError('No se pudo actualizar el todo')
-}
-}
-
-
-const handleDelete = async (id) => {
-try {
-await deleteTodo(id)
-setTodos(todos.filter(t => t.id !== id))
-} catch (err) {
-setError('No se pudo eliminar el todo')
-}
-}
-
-
 return (
 <div>
-<h1>Todos</h1>
-{loading && <p>Cargando...</p>}
+<h1>Crear Todo</h1>
+<form onSubmit={handleSubmit}>
+<label>
+Título
+<input value={title} onChange={e => setTitle(e.target.value)} />
+</label>
 {error && <p style={{color:'red'}}>{error}</p>}
-{!loading && !error && <TodosList todos={todos} onToggle={handleToggle} onDelete={handleDelete}/>}
+<button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Crear'}</button>
+</form>
 </div>
 )
 }
