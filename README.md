@@ -1,21 +1,33 @@
-<<<<<<< HEAD
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
 # todo-app
-actividad 10
->>>>>>> 7c90cab2aedf0374e73b6b7887fc5953bd59546a
+
+
+Proyecto para la actividad GA1-220501096-03-AA1-EV10: Navegación, formularios y consumo de datos en React.
+
+
+## Ejecutar
+
+
+1. `npm install`
+2. `npm run dev`
+
+
+## Rutas
+- `/` Home
+- `/todos` Lista y acciones
+- `/registro` Formulario para crear
+
+
+## Funcionalidades implementadas
+- Listar todos (consumo desde API)
+- Crear nuevos todos (formulario controlado)
+- Marcar completado/pendiente
+- Eliminar
+- Validación básica, estados de carga y manejo de errores
+
+
+## Video de demostración
+- Link: https://youtu.be/<tu-video>
+
+
+## Commits
+Lista de commits descriptivos en el historial.
