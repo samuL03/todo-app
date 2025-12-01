@@ -11,10 +11,10 @@ Proyecto para la actividad GA1-220501096-03-AA1-EV10: Navegación, formularios y
 2. `npm run dev`
 
 
-## Rutas
-- `/` Home
-- `/todos` Lista y acciones
-- `/registro` Formulario para crear
+## capturas de la interfaz grafica
+![alt text](<Captura de pantalla (104).png>)
+![alt text](<Captura de pantalla (105).png>)
+![alt text](<Captura de pantalla (106).png>)
 
 
 ## Funcionalidades implementadas
