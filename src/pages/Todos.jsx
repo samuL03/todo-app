@@ -42,6 +42,6 @@ Título
 {error && <p style={{color:'red'}}>{error}</p>}
 <button type="submit" disabled={loading}>{loading ? 'Creando...' : 'Crear'}</button> 
 </form> 
-</div>
+</div> 
 )
 }
