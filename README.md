@@ -12,10 +12,9 @@ Proyecto para la actividad GA1-220501096-03-AA1-EV10: Navegación, formularios y
 
 
 ## capturas de la interfaz grafica
-![alt text](<Captura de pantalla (104).png>)
-![alt text](<Captura de pantalla (105).png>)
-![alt text](<Captura de pantalla (106).png>)
-
+![alt text](<Captura de pantalla (135).png>)
+![alt text](<Captura de pantalla (134).png>)
+![alt text](<Captura de pantalla (133).png>)
 
 ## Funcionalidades implementadas
 - Listar todos (consumo desde API)
@@ -26,7 +25,7 @@ Proyecto para la actividad GA1-220501096-03-AA1-EV10: Navegación, formularios y
 
 
 ## Video de demostración
-- Link: https://youtu.be/<tu-video>
+- Link: https://youtu.be/l9Pr7XISMf8<tu-video>
 
 
 ## Commits
